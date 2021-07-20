@@ -1,4 +1,184 @@
-.leaflet-container {
+@import url('https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&display=swap');
+
+.app {
   width: 100vw;
   height: 100vh;
+  .sidebar {
+    padding: 20px;
+    background: #112238;
+    height: 100%;
+    width: 20vw;
+    min-width: 300px;
+    z-index: 3000;
+    box-shadow: 0px 0px 10px 2px #112238;
+    .logo {
+      position: relative;
+      font-size: 50px;
+      font-family: 'Exo';
+      color: rgb(123, 175, 243);
+      text-shadow: 0 0 0.05em #fff, 0 0 0.2em #3337ff, 0 0 0.3em #3337ff;
+      text-align: center;
+      padding-top: 20px;
+      margin-top: 20px;
+      font-style: italic;
+      span {
+        position: absolute;
+        top: -10px;
+        font-family: 'Mr Dafoe';
+        margin: 0;
+        font-size: 40px;
+        color: white;
+        text-shadow: 0 0 0.05em #fff, 0 0 0.2em #3337ff, 0 0 0.3em #3337ff;
+        transform: rotate(-5deg);
+      }
+    }
+    .description {
+      color: white;
+      font-size: 15px;
+      h2 {
+        font-size: 19px;
+      }
+    }
+    .form {
+      color: white;
+      input, button {
+        border-radius: 10px;
+        padding: 5px 20px;
+        border: none;
+        border-bottom: 1px solid #3337ff;
+        font-size: 20px;
+        color: #112238;
+        outline: none;
+      }
+      button {
+        width: 150px;
+        background: #7baff3;
+        margin: 0 auto;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      .validation-error {
+        color: #f89090;
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+  }
+  .content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .topbar {
+      position: absolute;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      background: rgba(237, 239, 241, 0.85);
+      z-index: 2000;
+      border-bottom: 1px solid #c8c8c9;
+      p {
+        color: #112238;
+        font-size: 20px;
+        font-weight: 500;
+      }
+      .input-wrapper {
+        margin: 0 10px 0 20px;
+        position: relative;
+        border-radius: 10px;
+        padding: 10px 10px 10px 50px;
+        border: none;
+        background-color: white;
+        border-bottom: 1px solid #c8c8c9;
+        .fa-search {
+          color: #112238;
+          position: absolute;
+          left: 18px;
+          top: 18px;
+        }
+        input {
+          font-size: 20px;
+          width: 100%;
+          margin-bottom: 0;
+          color: #112238;
+          background-color: transparent;
+          border: none;
+          outline: none;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+      .geosuggest__suggests-wrapper {
+        position: absolute;
+        z-index: 1000;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: white;
+        
+        ul {
+          list-style-type: none;
+          color: #112238;
+          margin-bottom: 0;
+          padding-left: 0;
+          li {
+            padding: 10px 25px;
+          }
+          li:first-of-type {
+            padding-top: 25px;
+          }
+          li:last-of-type {
+            padding-bottom: 25px;
+          }          
+        }
+      }
+    }
+    .geosuggest__suggests--hidden {
+      max-height: 0;
+      overflow: hidden;
+      border-width: 0;
+    }
+    .leaflet-container {
+      width: 100%;
+      height: 100%;
+      .leaflet-top {
+        top: 80px;
+        z-index: 3000;
+        top: -7px;
+      }
+    }
+  }
+}
+
+#loader {
+ position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(123, 175, 243, 0.5);
+  z-index: 999;
+}
+
+#loader:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #3337ff;
+  border-color: #3337ff transparent #3337ff transparent;
+  animation: loader 1.2s linear infinite;
+}
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

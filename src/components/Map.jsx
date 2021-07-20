@@ -1,22 +1,38 @@
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import React, { useState, useEffect } from "react";
+import { MapContainer, TileLayer, useMap } from "react-leaflet";
 
-const Map = ({ coordinates }) => {
-  const map = useMap()
-  map.setView(coordinates, 15);
-  return null
+const Map = ({ bounds }) => {
+  const map = useMap();
+  map.fitBounds(bounds);
+  return null;
 }
 
 export const MapComponent = ({ coordinates }) => {
+  const [map, setMap] = useState([[52.74514, 23.58165], [52.74514, 23.58165]]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (coordinates.lat !== null || coordinates.lng !== null) {
+      setLoading(true);
+      fetch(`http://devcube.placeme.pl/api/getGeoJSON?lat=${coordinates.lat}&lng=${coordinates.lng}`)
+        .then(response => response.json())
+        .then(data => {
+          setLoading(false);
+          setMap([data.coordinates[0].map(arr => arr.reverse())]);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    }
+  }, [coordinates]);
 
   return (
-    <MapContainer center={[coordinates.lat, coordinates.lng]} zoom={15}>
-      <Map coordinates={coordinates}></Map>
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <Marker position={[coordinates.lat, coordinates.lng]}>
-        <Popup>
-          This is the place
-        </Popup>
-      </Marker>
-    </MapContainer>
+    <>
+      {loading && <div id="loader"></div>}
+      <MapContainer bounds={map}>
+        <Map bounds={map}></Map>
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+      </MapContainer>
+    </>
   )
 };

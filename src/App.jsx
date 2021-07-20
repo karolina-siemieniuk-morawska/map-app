@@ -1,24 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Header } from './components/Header';
+import { Logo } from './components/Logo';
+import { Description } from './components/Description';
 import { Form } from './components/Form';
 import { MapComponent } from './components/Map';
-import './App.scss'
+import './App.scss';
 
 function App() {
   const [coordinates, setCoordinates] = useState({
-    lat: 0,
-    lng: 0
-  });
-
-  useEffect(() => {
-    console.log(coordinates);
+    lat: null,
+    lng: null
   });
 
   const getCoordinates = (c) => setCoordinates(c);
 
   return (
-    <div className="App">
-      <Form coordinates={getCoordinates} />
-      <MapComponent coordinates={coordinates} />
+    <div className="app d-flex">
+      <aside className="sidebar">
+        <Logo />
+        <Description />
+        <Form coordinates={getCoordinates} />
+      </aside>
+      <main className="content">
+        <Header coordinates={getCoordinates} />
+        <MapComponent coordinates={coordinates} />
+      </main>
     </div>
   );
 }
