@@ -9,30 +9,35 @@ const Map = ({ bounds }) => {
 
 export const MapComponent = ({ coordinates }) => {
   const [map, setMap] = useState([[73, 15], [-40, -75]]);
-  const [loading, setLoading] = useState(false);
+  const [loader, setLoader] = useState(false);
+  const initialCoordinates = coordinates.lat === null || coordinates.lng === null;
+
+  const getMap = (coordinates) => {
+    fetch(`http://devcube.placeme.pl/api/getGeoJSON?lat=${coordinates.lat}&lng=${coordinates.lng}`)
+      .then(response => response.json())
+      .then(data => {
+        setLoader(false);
+        setMap([data.coordinates[0].map(arr => arr.reverse())]);
+      })
+      .catch((error) => {
+        console.error(`Error: ${error.message}`);
+      });
+  }
 
   useEffect(() => {
-    if (coordinates.lat !== null || coordinates.lng !== null) {
-      setLoading(true);
-      fetch(`http://devcube.placeme.pl/api/getGeoJSON?lat=${coordinates.lat}&lng=${coordinates.lng}`)
-        .then(response => response.json())
-        .then(data => {
-          setLoading(false);
-          setMap([data.coordinates[0].map(arr => arr.reverse())]);
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
+    if (!initialCoordinates) {
+      setLoader(true);
+      getMap(coordinates);
     }
-  }, [coordinates]);
+  }, [coordinates, initialCoordinates]);
 
   return (
     <>
-      {loading && <div id="loader"></div>}
+      {loader && <div id="loader"></div>}
       <MapContainer bounds={map}>
         <Map bounds={map}></Map>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        {coordinates.lat !== null && !loading && <Polygon positions={map} />}
+        {!initialCoordinates && !loader && <Polygon positions={map} />}
       </MapContainer>
     </>
   )

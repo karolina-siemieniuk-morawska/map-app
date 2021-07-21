@@ -1,8 +1,32 @@
-# Getting Started with Create React App
+<h1 align="center">Super cool Map App 🌎</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 💡 About
 
-## Available Scripts
+React application that let's you display chosen location on a map. 
+
+### Stack
+
+✨ **React 17**: [https://github.com/facebook/react](https://github.com/facebook/react)  
+✨ **React Leaflet**: [https://github.com/PaulLeCam/react-leaflet](https://github.com/PaulLeCam/react-leaflet)  
+✨ **React Geosuggest**: [https://github.com/ubilabs/react-geosuggest](https://github.com/ubilabs/react-geosuggest)  
+✨ **Form Hook**: [https://github.com/react-hook-form/react-hook-form](https://github.com/react-hook-form/react-hook-form)  
+✨ **Font Awesome**: [https://github.com/FortAwesome/react-fontawesome](https://github.com/FortAwesome/react-fontawesome)  
+✨ **Sass**: [https://github.com/sass/sass](https://github.com/sass/sass)  
+✨ **Google Fonts**: [https://fonts.google.com/](https://fonts.google.com/)
+  
+  
+## 🚀 Launching 
+  First, in the app location you need to
+  ```
+  npm i
+  ```
+  ```
+  npm start
+  ```
+  ...and then open browser on [localhost:3000](http://localhost:3000)
+  
+   
+## 📜 Available Scripts
 
 In the project directory, you can run:
 
@@ -38,33 +62,3 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

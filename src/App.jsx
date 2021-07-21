@@ -10,8 +10,9 @@ function App() {
   const [coordinates, setCoordinates] = useState({
     lat: null,
     lng: null
-  });
+  }); // https://code-boxx.com/javascript-null-vs-undefined-vs-empty/
 
+  // I haven't seen a statment like below before. Not saying it's invalid but it's not clear for me what's the purpose
   const getCoordinates = (c) => setCoordinates(c);
 
   return (

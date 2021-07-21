@@ -3,13 +3,15 @@ import { ValidationError } from "./ValidationError";
 
 export const Form = ({ coordinates }) => {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const latRegEx = /^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$/;
+  const lngRegEx = /^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$/;
 
   const submitCoordinates = (data) => {
-    const geosuggestion = document.getElementById('geosuggest__input');
     coordinates({
       lat: data.latitude,
       lng: data.longitude
     });
+    const geosuggestion = document.getElementById('geosuggest__input');
     geosuggestion.value = null;
   }
 
@@ -19,8 +21,7 @@ export const Form = ({ coordinates }) => {
         Latitude:
       </label>
       <input type="text" name="latitude" className="mb-3" placeholder="i.e 52.467"
-        {...register("latitude",
-          { required: true, pattern: /^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$/, maxLength: 9 })} />
+        {...register("latitude", { required: true, pattern: latRegEx, maxLength: 9 })} />
 
       {errors.latitude && errors.latitude.type === "required" && (
         <ValidationError content=" Latitude is required" />
@@ -36,13 +37,7 @@ export const Form = ({ coordinates }) => {
         Longitude:
       </label>
       <input type="text" name="longitude" className="mb-3" placeholder="i.e 23.152"
-        {...register("longitude",
-          {
-            required: true,
-            pattern: /^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$/,
-            maxLength: 10
-          }
-        )} />
+        {...register("longitude", { required: true, pattern: lngRegEx, maxLength: 10 })} />
 
       {errors.longitude && errors.longitude.type === "required" && (
         <ValidationError content=" Latitude is required" />

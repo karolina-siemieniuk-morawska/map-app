@@ -6,7 +6,7 @@ export const ValidationError = ({ content }) => {
 
   return (
     <p className="validation-error">
-      <span>{ex} </span> {content}
+      <span className="mr-2">{ex}</span>{content}
     </p>
   );
 };

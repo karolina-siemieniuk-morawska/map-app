@@ -6,12 +6,12 @@ export const Header = ({ coordinates }) => {
   const search = <FontAwesomeIcon icon={faSearch} />;
 
   const onSuggestSelect = (suggest) => {
-    const form = document.getElementById('form');
     if (suggest) {
       coordinates({
         lat: suggest.location.lat,
         lng: suggest.location.lng
       });
+      const form = document.getElementById('form');
       form.reset();
     }
   };
