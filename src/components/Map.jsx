@@ -8,7 +8,7 @@ const Map = ({ bounds }) => {
 }
 
 export const MapComponent = ({ coordinates }) => {
-  const [map, setMap] = useState([[52.74514, 23.58165], [52.74514, 23.58165]]);
+  const [map, setMap] = useState([[73, 15], [-40, -75]]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {

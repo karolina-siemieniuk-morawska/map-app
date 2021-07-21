@@ -16,7 +16,7 @@
       position: relative;
       font-size: 50px;
       font-family: 'Exo';
-      color: rgb(123, 175, 243);
+      color: #7baff3;
       text-shadow: 0 0 0.05em #fff, 0 0 0.2em #3337ff, 0 0 0.3em #3337ff;
       text-align: center;
       padding-top: 20px;
@@ -28,25 +28,25 @@
         font-family: 'Mr Dafoe';
         margin: 0;
         font-size: 40px;
-        color: white;
-        text-shadow: 0 0 0.05em #fff, 0 0 0.2em #3337ff, 0 0 0.3em #3337ff;
+        color: #fff;
+        text-shadow: 0 0 0.05em #6886e9, 0 0 0.2em #3337ff, 0 0 0.3em #3337ff;
         transform: rotate(-5deg);
       }
     }
     .description {
-      color: white;
+      color: #fff;
       font-size: 15px;
       h2 {
         font-size: 19px;
       }
     }
     .form {
-      color: white;
+      color: #fff;
       input, button {
         border-radius: 10px;
         padding: 5px 20px;
         border: none;
-        border-bottom: 1px solid #3337ff;
+        border-bottom: 2px solid #3337ff;
         font-size: 20px;
         color: #112238;
         outline: none;
@@ -72,7 +72,7 @@
     .topbar {
       position: absolute;
       width: 100%;
-      height: 70px;
+      height: 80px;
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -90,7 +90,7 @@
         border-radius: 10px;
         padding: 10px 10px 10px 50px;
         border: none;
-        background-color: white;
+        background-color: #fff;
         border-bottom: 1px solid #c8c8c9;
         .fa-search {
           color: #112238;
@@ -116,7 +116,7 @@
         z-index: 1000;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
-        background-color: white;
+        background-color: #fff;
         
         ul {
           list-style-type: none;
@@ -140,40 +140,38 @@
       overflow: hidden;
       border-width: 0;
     }
+    #loader {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      background: rgba(123, 175, 243, 0.5);
+      z-index: 999;
+    }
+    #loader:after {
+      content: " ";
+      display: block;
+      width: 64px;
+      height: 64px;
+      margin: 8px;
+      border-radius: 50%;
+      border: 6px solid #3337ff;
+      border-color: #3337ff transparent #3337ff transparent;
+      animation: loader 1.2s linear infinite;
+    }
     .leaflet-container {
       width: 100%;
       height: 100%;
       .leaflet-top {
-        top: 80px;
         z-index: 3000;
-        top: -7px;
+        top: -2px;
       }
     }
   }
 }
 
-#loader {
- position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  background: rgba(123, 175, 243, 0.5);
-  z-index: 999;
-}
-
-#loader:after {
-  content: " ";
-  display: block;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border-radius: 50%;
-  border: 6px solid #3337ff;
-  border-color: #3337ff transparent #3337ff transparent;
-  animation: loader 1.2s linear infinite;
-}
 @keyframes loader {
   0% {
     transform: rotate(0deg);
