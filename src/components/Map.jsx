@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MapContainer, TileLayer, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, useMap, Polygon } from "react-leaflet";
 
 const Map = ({ bounds }) => {
   const map = useMap();
@@ -32,6 +32,7 @@ export const MapComponent = ({ coordinates }) => {
       <MapContainer bounds={map}>
         <Map bounds={map}></Map>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        {coordinates.lat !== null && !loading && <Polygon positions={map} />}
       </MapContainer>
     </>
   )
