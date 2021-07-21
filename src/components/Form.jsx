@@ -5,14 +5,16 @@ export const Form = ({ coordinates }) => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const submitCoordinates = (data) => {
+    const geosuggestion = document.getElementById('geosuggest__input');
     coordinates({
       lat: data.latitude,
       lng: data.longitude
     });
+    geosuggestion.value = null;
   }
 
   return (
-    <form className="form d-flex flex-column px-3" onSubmit={handleSubmit(submitCoordinates)}>
+    <form id="form" className="form d-flex flex-column px-3" onSubmit={handleSubmit(submitCoordinates)}>
       <label htmlFor="latitude" className="mb-1">
         Latitude:
       </label>
