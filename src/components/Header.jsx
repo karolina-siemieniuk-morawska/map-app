@@ -1,13 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Geosuggest from 'react-geosuggest';
 
-export const Header = ({ coordinates }) => {
+export const Header = ({ setCoordinates }) => {
   const search = <FontAwesomeIcon icon={faSearch} />;
 
   const onSuggestSelect = (suggest) => {
     if (suggest) {
-      coordinates({
+      setCoordinates({
         lat: suggest.location.lat,
         lng: suggest.location.lng
       });

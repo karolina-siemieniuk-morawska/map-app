@@ -4,26 +4,29 @@ import { Logo } from './components/Logo';
 import { Description } from './components/Description';
 import { Form } from './components/Form';
 import { MapComponent } from './components/Map';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 import './App.scss';
 
 function App() {
+  const hamburger = <FontAwesomeIcon icon={faBars} />;
   const [coordinates, setCoordinates] = useState({
     lat: null,
     lng: null
-  }); // https://code-boxx.com/javascript-null-vs-undefined-vs-empty/
+  });
 
-  // I haven't seen a statment like below before. Not saying it's invalid but it's not clear for me what's the purpose
-  const getCoordinates = (c) => setCoordinates(c);
+  const toggleMenu = () => document.getElementById('sidebar').classList.toggle('collapsed');
 
   return (
     <div className="app d-flex">
-      <aside className="sidebar">
+      <aside id="sidebar" className="sidebar">
+        <span className="hamburger" onClick={toggleMenu}>{hamburger}</span>
         <Logo />
         <Description />
-        <Form coordinates={getCoordinates} />
+        <Form setCoordinates={setCoordinates} />
       </aside>
       <main className="content">
-        <Header coordinates={getCoordinates} />
+        <Header setCoordinates={setCoordinates} />
         <MapComponent coordinates={coordinates} />
       </main>
     </div>

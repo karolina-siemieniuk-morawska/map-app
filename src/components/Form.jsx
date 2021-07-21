@@ -1,13 +1,13 @@
 import { useForm } from "react-hook-form";
 import { ValidationError } from "./ValidationError";
 
-export const Form = ({ coordinates }) => {
+export const Form = ({ setCoordinates }) => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const latRegEx = /^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$/;
   const lngRegEx = /^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$/;
 
   const submitCoordinates = (data) => {
-    coordinates({
+    setCoordinates({
       lat: data.latitude,
       lng: data.longitude
     });

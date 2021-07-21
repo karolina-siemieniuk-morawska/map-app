@@ -4,8 +4,7 @@
 
 React application that let's you display chosen location on a map. 
 
-### Stack
-
+* Stack:  
 ✨ **React 17**: [https://github.com/facebook/react](https://github.com/facebook/react)  
 ✨ **React Leaflet**: [https://github.com/PaulLeCam/react-leaflet](https://github.com/PaulLeCam/react-leaflet)  
 ✨ **React Geosuggest**: [https://github.com/ubilabs/react-geosuggest](https://github.com/ubilabs/react-geosuggest)  
@@ -16,7 +15,7 @@ React application that let's you display chosen location on a map.
   
   
 ## 🚀 Launching 
-  First, in the app location you need to
+  First, in the app location you need to...
   ```
   npm i
   ```

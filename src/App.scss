@@ -7,11 +7,14 @@
   .sidebar {
     padding: 20px;
     background: #112238;
-    height: 100%;
     width: 20vw;
     min-width: 300px;
     z-index: 3000;
     box-shadow: 0px 0px 10px 2px #112238;
+    .hamburger {
+      position: absolute;
+      color: white;
+    }
     .logo {
       position: relative;
       font-size: 50px;
@@ -62,6 +65,14 @@
         color: #f89090;
         font-size: 14px;
         text-align: center;
+      }
+    }
+    &.collapsed {
+      width: 35px;
+      min-width: 35px;
+      padding: 20px 10px;
+      .logo, .description, .form {
+        display: none !important;
       }
     }
   }
