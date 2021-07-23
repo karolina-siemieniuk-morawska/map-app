@@ -13,7 +13,7 @@ export const MapComponent = ({ coordinates }) => {
   const initialCoordinates = coordinates.lat === null || coordinates.lng === null;
 
   const getMap = (coordinates) => {
-    fetch(`http://devcube.placeme.pl/api/getGeoJSON?lat=${coordinates.lat}&lng=${coordinates.lng}`)
+    fetch(`https://devcube.placeme.pl/api/getGeoJSON?lat=${coordinates.lat}&lng=${coordinates.lng}`)
       .then(response => response.json())
       .then(data => {
         setLoader(false);
