@@ -20,7 +20,7 @@ export const Form = ({ setCoordinates }) => {
       <label htmlFor="latitude" className="mb-1">
         Latitude:
       </label>
-      <input type="text" name="latitude" className="mb-3" placeholder="i.e 52.467"
+      <input type="text" name="latitude" className="mb-3" placeholder="e.g. 52.467"
         {...register("latitude", { required: true, pattern: latRegEx, maxLength: 9 })} />
 
       {errors.latitude && errors.latitude.type === "required" && (
@@ -36,7 +36,7 @@ export const Form = ({ setCoordinates }) => {
       <label htmlFor="longitude" className="mb-1">
         Longitude:
       </label>
-      <input type="text" name="longitude" className="mb-3" placeholder="i.e 23.152"
+      <input type="text" name="longitude" className="mb-3" placeholder="e.g. 23.152"
         {...register("longitude", { required: true, pattern: lngRegEx, maxLength: 10 })} />
 
       {errors.longitude && errors.longitude.type === "required" && (
