@@ -40,10 +40,10 @@ export const Form = ({ setCoordinates }) => {
         {...register("longitude", { required: true, pattern: lngRegEx, maxLength: 10 })} />
 
       {errors.longitude && errors.longitude.type === "required" && (
-        <ValidationError content=" Latitude is required" />
+        <ValidationError content=" Longitude is required" />
       )}
       {errors.longitude && errors.longitude.type === "pattern" && (
-        <ValidationError content=" Latitude must be a number within a range from -180 to 180" />
+        <ValidationError content=" Longitude must be a number within a range from -180 to 180" />
       )}
       {errors.longitude && errors.longitude.type === "maxLength" && (
         <ValidationError content=" Max 6 decimal places" />
