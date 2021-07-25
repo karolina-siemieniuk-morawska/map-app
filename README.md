@@ -2,7 +2,7 @@
 
 ## 💡 About
 
-React application that let's you display chosen location on a map. 
+React application that let's you display chosen location on a map - you can check it out here: [https://app-map.netlify.app/](https://app-map.netlify.app/)
 
 * Stack:  
 ✨ **React 17**: [https://github.com/facebook/react](https://github.com/facebook/react)  
