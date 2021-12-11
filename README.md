@@ -2,7 +2,7 @@
 
 ## 💡 About
 
-React application that let's you display chosen location on a map - you can check it out here: [https://app-map.netlify.app/](https://app-map.netlify.app/)
+React application that let's you display chosen location on a map.
 
 * Stack:  
 ✨ **React 17**: [https://github.com/facebook/react](https://github.com/facebook/react)  
@@ -15,6 +15,9 @@ React application that let's you display chosen location on a map - you can chec
   
   
 ## 🚀 Launching 
+
+  (In order for app to work you will need to provide valid Google API key).
+  
   First, in the app location you need to...
   ```
   npm i
